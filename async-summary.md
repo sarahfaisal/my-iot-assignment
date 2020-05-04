@@ -18,3 +18,39 @@ to start an asynchronous function you should add .await in it or by the help of 
 2.improve performances 
 3.improved responsiveness
 
+# visual example
+
+use async_std::task;
+use surf;
+
+async fn fetch(url: &str) -> Result<String, surf::Exception>{
+    surf::get(url).recv_string().await
+}
+
+async fn exce(){
+    match fetch("https://www.piaic.org/").await{
+        Ok(res) => println!("{}",res),
+        Err(e) =>  println!("Error {}",e),
+    }
+}
+
+fn main(){
+    task::block_on(exce())
+}
+
+
+# dependencies
+[package]
+name = "online3"
+version = "0.1.0"
+authors = ["hp"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+async-std = "1"
+surf = "1"
+futures = "0.3.1"
+
