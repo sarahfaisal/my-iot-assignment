@@ -12,3 +12,9 @@ Async in rust is slightly different from what we use in other languages .
 # An async function does not (necessarily) start executing immediately
 
 to start an asynchronous function you should add .await in it or by the help of an executor , launch it .Until this happens, all you have is a Future that has not started .
+
+# advantages of Async
+1.it is less time consuming.
+2.improve performances 
+3.improved responsiveness
+
